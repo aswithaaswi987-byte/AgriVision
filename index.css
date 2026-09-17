@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-gray-50 text-gray-800 font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 active:bg-green-800
+           text-white font-semibold px-6 py-3 rounded-xl shadow-md transition-all duration-200
+           focus:outline-none focus:ring-4 focus:ring-green-300 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white border-2 border-green-600 text-green-700
+           hover:bg-green-50 font-semibold px-6 py-3 rounded-xl shadow-sm transition-all duration-200
+           focus:outline-none focus:ring-4 focus:ring-green-200;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-md border border-gray-100 p-6;
+  }
+  .badge-healthy {
+    @apply inline-flex items-center gap-1 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full;
+  }
+  .badge-diseased {
+    @apply inline-flex items-center gap-1 bg-red-100 text-red-800 text-xs font-semibold px-3 py-1 rounded-full;
+  }
+  .badge-demo {
+    @apply inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full;
+  }
+}
+
+/* Drag-and-drop drop zone highlight */
+.drop-active {
+  @apply border-green-500 bg-green-50;
+}
+
+/* Spinner */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 1.4s linear infinite;
+}
+
+/* Pulse ring */
+@keyframes ping-sm {
+  75%, 100% { transform: scale(1.4); opacity: 0; }
+}
+.animate-ping-sm {
+  animation: ping-sm 1.2s cubic-bezier(0,0,0.2,1) infinite;
+}
